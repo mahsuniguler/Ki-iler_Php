@@ -10,76 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700&display=swap" rel="stylesheet" />
   <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">-->
-  <style>
-    .tab5 {
-      font-weight: 400;
-      border: none;
-      padding: .375rem .75rem;
-      font-size: 1rem;
-
-      border-radius: .25rem;
-
-    }
-
-    .tab6 {
-      background-color: red;
-      font-weight: 400;
-      border: none;
-      padding: .375rem .75rem;
-      font-size: 1rem;
-
-      border-radius: .25rem;
-
-    }
-  </style>
+  
 </head>
 
-<body class="text-gray-800 font-poppins container inline">
-  <nav class="bg-slate-300 shadow-sm shadow-slate-600">
-    <div class="container mx-auto px-4 py-3 flex items-center hover:rounded">
-      <div class="ml-1 flex">
-        <a href="index.php" class="flex items-center hover:text-gray-100 hover:rounded hover:bg-black p-1  ">REHBERİM</a>
-      </div>
-
-      <div class="ml-12 flex">
-        <a href="#" class="flex items-center hover:text-gray-100 hover:rounded hover:bg-black p-1 ">
-          <span class="mr-2">
-            <i class="fa-solid fa-user"></i>
-          </span>Hakkımda
-        </a>
-      </div>
-
-      <div class="ml-12 flex">
-        <a href="#" class="flex items-center hover:text-gray-100 hover:rounded hover:bg-black p-1 ">
-          <span class="mr-2">
-            <i class="fa-solid fa-phone"></i>
-          </span>İletişim
-        </a>
-      </div>
-
-      <div class="relative ml-auto flex">
-        <span class="absolute left-3 text-gray-600 text-sm">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        <form action="" method="post">
-
-          <input type="text" name="kelime" placeholder="Ara.." id="aramaKelimesi" class="flex w-full rounded-3xl ml-1 pl-8 pr-2 focus:outline-none bg-gray-200 text-sm text-gray-600 shadow-md shadow-gray-400">
-
-        </form>
-      </div>
-
-      <div class="ml-5">
-
-        <a href="kayitekle.php" class="flex items-center font-semibold text-gray-900 hover:text-gray-100 hover:rounded hover:bg-black p-1 ">
-          <span class="mr-2">
-            <i class="fa-solid fa-user"></i>
-          </span>Kayıt Ol</a>
-      </div>
-    </div>
-  </nav>
+<body>
+  
 
   <?php
-  include('vt.php');
+  include('partials/_header.php');
+  include('Connectmysql.php');
 
   $sql = 'SELECT * FROM rehberimtable where id = ' . $_GET["id"];
   $sorgu =  $conn->query($sql);

@@ -45,7 +45,7 @@
         <a href="kayıtol.php" class="flex items-center font-semibold text-gray-900 hover:text-gray-100 hover:rounded hover:bg-black p-1 ">
           <span class="mr-2">
             <i class="fa-solid fa-user"></i>
-          </span>Kayıt Ol</a>
+          </span>EKLE</a>
       </div>
 
 
@@ -58,22 +58,18 @@
     <div class="m-auto">
       <div class="bg-slate-50 p-10 shadow-md rounded ">
         <form action="kayitSql.php" method="post">
-          <div>
-            <div class="">
-              <label>Adı:</label><br>
-              <input type="text" placeholder="Adı: " name="name" class="mb-3 border-2 rounded outline-0 pl-1"><br>
-              <label>Soyadı:</label><br>
-              <input type="text" placeholder="Soyadı: " name="surname" class="mb-3 border-2 rounded outline-0 pl-1"><br>
-              <label>Numarası:</label><br>
-              <input type="text" placeholder="Telefon Numarası: " name="number" class=" mb-3 border-2 rounded outline-0 pl-1"><br>
-              <input type="Submit" value="KAYIT OL" class="bg-slate-700 text-yellow-50 w-full  ">
-            </div>
-          </div>
+          <label>Adı:</label><br>
+          <input type="text" placeholder="Adı: " name="name" class="mb-3 border-2 rounded outline-0 pl-1"><br>
+          <label>Soyadı:</label><br>
+          <input type="text" placeholder="Soyadı: " name="surname" class="mb-3 border-2 rounded outline-0 pl-1"><br>
+          <label>Numarası:</label><br>
+          <input type="text" placeholder="Telefon Numarası: " name="number" class=" mb-3 border-2 rounded outline-0 pl-1"><br>
+          <input type="Submit" value="EKLE" class="bg-slate-700 text-yellow-50 w-full  ">
         </form>
       </div>
     </div>
   </div>
-  
+
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 
-include('vt.php');
+include('Connectmysql.php');
 
 $sql = "INSERT INTO rehberimtable (firstname, lastname, Telefon_numarasi) VALUES ('" . $_POST['name'] . "', '" . $_POST['surname'] . "', '" . $_POST['number'] . "')";
 echo $sql;

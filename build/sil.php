@@ -1,6 +1,6 @@
 <?php
 
-include("vt.php");
+include("Connectmysql.php");
 $id = $_GET["id"];
 $sql = "DELETE FROM rehberimtable WHERE id=$id";
 
