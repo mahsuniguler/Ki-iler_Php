@@ -1,11 +1,8 @@
 <?php
-
-include("Connectmysql.php");
-$id = $_GET["id"];
-$sql = "DELETE FROM rehberimtable WHERE id=$id";
-
-$conn->query($sql);
-
-$conn->close();
-header('Location: index.php');
+if (isset($_GET["sil_id"]) || $_GET["sil_id"] <> "") {
+  $_id = $_GET["sil_id"];
+  include("functions.php");
+  kayitsil($_id);
+} else
+  echo '<script>window.location.href ="index.php";</script>';
 ?>

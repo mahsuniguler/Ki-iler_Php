@@ -9,69 +9,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700&display=swap" rel="stylesheet" />
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">-->
-  
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  
+<?php include('partials/_header.php');
+include('Connectmysql.php');
 
-  <?php
-  include('partials/_header.php');
-  include('Connectmysql.php');
+$sql = 'SELECT * FROM rehberimtable where id = ' . $_GET["duzenle_id"];
+$sorgu =  $conn->query($sql);
+$result = $sorgu->fetch_assoc(); ?>
 
-  $sql = 'SELECT * FROM rehberimtable where id = ' . $_GET["id"];
-  $sorgu =  $conn->query($sql);
-  $result = $sorgu->fetch_assoc();
-  ?>
+<div class="flex h-96 bg-slate-200" style="height: 718px;">
 
-
-  <div class="flex h-96 bg-slate-200">
-
-    <div class="m-auto">
-      <div class="bg-slate-50 p-10 shadow-md rounded ">
-        <form action="" method="post">
-          <div>
-            <div class="">
-              <label>Adı:</label><br>
-              <input type="text" placeholder="Adı: " name="name" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['firstname']; ?>"><br>
-              <label>Soyadı:</label><br>
-              <input type="text" placeholder="Soyadı: " name="surname" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['lastname']; ?>"><br>
-              <label>Numarası:</label><br>
-              <input type="text" placeholder="Telefon Numarası: " name="number" class=" mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['Telefon_numarasi']; ?>"><br>
-              <div class="flex">
-                <input type="Submit" value="Düzenle" class="mx-2 rounded bg-slate-700 text-yellow-50 w-full ">
-                <a href="./" class="bg-red-500 text-center mx-2 rounded text-white w-full">Vazgeç</a>
-              </div>
-
+  <div class="m-auto" style="font-size: x-large;">
+    <div class="bg-slate-50 p-10 shadow-md rounded ">
+      <form action="" method="post">
+        <div>
+          <div class="">
+            <label>Adı:</label><br>
+            <input type="text" placeholder="Adı: " name="name" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['firstname']; ?>"><br>
+            <label>Soyadı:</label><br>
+            <input type="text" placeholder="Soyadı: " name="surname" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['lastname']; ?>"><br>
+            <label>Numarası:</label><br>
+            <input type="text" placeholder="Telefon Numarası: " name="number" class=" mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['Telefon_numarasi']; ?>"><br>
+            <div class="flex">
+              <input type="Submit" value="Düzenle" class="mx-2 rounded bg-slate-700 text-yellow-50 w-full ">
+              <a href="./" class="bg-red-500 text-center mx-2 rounded text-white w-full">Vazgeç</a>
             </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <?php
-  if ($_POST) {
-    if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['number'])) {
-      $name = $_POST['name'];
-      $surname = $_POST['surname'];
-      $number = $_POST['number'];
-      $sql = "UPDATE rehberimtable SET firstname='$name', lastname='$surname', Telefon_numarasi=$number WHERE id = " . $_GET["id"];
-      if ($name <> "" || $surname <> "" || $number <> "") {
-        if ($conn->query($sql)) {
-        } else {
-          echo "Veritabanı güncelleme hatası: " . $conn->error;
-        }
+<?php
+
+if ($_POST) {
+  if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['number'])) {
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $number = $_POST['number'];
+    $sql = "UPDATE rehberimtable SET firstname='$name', lastname='$surname', Telefon_numarasi=$number WHERE id = " . $_GET["duzenle_id"];
+    if ($name <> "" || $surname <> "" || $number <> "") {
+      if ($conn->query($sql)) {
+        echo '<script type="text/javascript">alert("Başarıyla Güncellendi."); 
+        window.location = "index.php";</script>';
       } else {
-        echo "Hata";
+        echo "Veritabanı güncelleme hatası: " . $conn->error;
       }
-
-      echo '<script type="text/javascript">window.location = "index.php";</script>';
+    } else {
+      echo "Hata";
     }
   }
+}
 
-  ?>
+?>
 
 </body>
 
