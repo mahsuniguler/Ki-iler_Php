@@ -19,7 +19,7 @@ $sql = 'SELECT * FROM rehberimtable where id = ' . $_GET["duzenle_id"];
 $sorgu =  $conn->query($sql);
 $result = $sorgu->fetch_assoc(); ?>
 
-<div class="flex h-96 bg-slate-200" style="height: 718px;">
+<div class="flex pt-40">
 
   <div class="m-auto" style="font-size: x-large;">
     <div class="bg-slate-50 p-10 shadow-md rounded ">
@@ -30,7 +30,7 @@ $result = $sorgu->fetch_assoc(); ?>
             <input type="text" placeholder="Adı: " name="name" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['firstname']; ?>"><br>
             <label>Soyadı:</label><br>
             <input type="text" placeholder="Soyadı: " name="surname" class="mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['lastname']; ?>"><br>
-            <label>Numarası:</label><br>
+            <label>Telefon Numarası:</label><br>
             <input type="text" placeholder="Telefon Numarası: " name="number" class=" mb-3 border-2 rounded outline-0 pl-1" value="<?php echo $result['Telefon_numarasi']; ?>"><br>
             <div class="flex">
               <input type="Submit" value="Düzenle" class="mx-2 rounded bg-slate-700 text-yellow-50 w-full ">

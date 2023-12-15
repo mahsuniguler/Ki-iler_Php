@@ -1,4 +1,4 @@
-<body class="text-gray-100 font-poppins container-height" >
+<body class="text-gray-100 font-poppins container-height bg-slate-200" >
     <header style="margin-bottom: 2px;">
         <nav class="fixed mr-6 w-full bg-slate-300 shadow-sm shadow-slate-600">
             <div class="container mx-auto px-4 py-3 flex items-center hover:rounded">

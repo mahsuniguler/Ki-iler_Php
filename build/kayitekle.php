@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<?php 
+<?php
 include("partials/_header.php") ?>
-<div class="flex h-96 bg-slate-200" style="height: 718px;">
+<div class="flex h-96 pt-40">
 
   <div class="m-auto" style="font-size: x-large;">
     <div class="bg-slate-50 p-10 shadow-md rounded">

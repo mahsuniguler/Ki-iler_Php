@@ -28,20 +28,18 @@
 include("partials/_header.php");
 include("functions.php") ?>
 <br>
-<table></table>
 
-<div class="w-8/12 justify-center top-1/2 mx-auto">
+<div class="w-7/12 justify-center top-1/2 mx-auto">
   <div class="flex bg-slate-900 mb-1 rounded-3xl items-center min-h-0" style="padding: auto; color:azure">
     <a href="./" class="mx-3 text-center w-10">Sıra</a>
     <a href="index.php?sirala=firstname" class="tab2 w-52">ADI</a>
-    <a href="index.php?sirala=lastname" class="tab3 w-56">SOYADI</a>
+    <a href="index.php?sirala=lastname" class="tab3 w-52">SOYADI</a>
     <a href="index.php?sirala=Telefon_numarasi" class="tab4  mr-4">TELEFON NUMARASI</a>
   </div>
   <?php $sql = 'SELECT * FROM rehberimtable';
   if (isset($_GET['sirala']) && $_GET['sirala'] != "") {
     $sirala = $_GET['sirala'];
     $sql = "SELECT * FROM rehberimtable ORDER BY $sirala";
-
   }
 
   if (isset($_POST["arama"]) && $_POST["arama"] != "") {
@@ -60,7 +58,7 @@ include("functions.php") ?>
         <div class="tab2 w-52"><?php echo $row["firstname"]; ?></div>
         <div class="tab3 w-56"><?php echo $row["lastname"]; ?></div>
         <div class="tab4 w-56"><?php echo $row["Telefon_numarasi"]; ?></div>
-        <div class="m-auto my-2">
+        <div class="ml-auto mr-3 my-2">
           <a href="duzenle.php?duzenle_id=<?php echo $row["id"]; ?>" class="duzenle bg-slate-700">Düzenle</a>
           <a class="sil ml-1 text-right mr-3 my-2" href="sil.php?sil_id=<?php echo $row["id"]; ?>" onclick="silkontrol(event)">Sil</a>
         </div>
